@@ -1,0 +1,13 @@
+{% block msgshow %}
+    <div class="container">
+    <div class="row">
+    {% for msg in msgquery %}
+          <div class="col-sm-4">
+           <div class="jumbotron" style="opacity: 0.6">
+    <a href=" /webapp/message/{{ msg.id }}" style="color: #000000">{{ msg.message|truncatewords:'4' }}</a>   : <a style="color: mediumvioletred">{{ msg.sender }}</a>
+    </div>
+</div>
+
+    {%  endfor %}</div>
+    </div>
+{% endblock %}

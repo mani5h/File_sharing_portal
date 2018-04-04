@@ -1,0 +1,34 @@
+{%  extends "webapp/includes/base.html" %}
+{% block content %}
+    <body style="background-image:url('../../../media/assets/ios_7_galaxy-wallpaper-1366x768.jpg') ;background-attachment: fixed ;height: 100%;font-size: medium">
+    {% include 'webapp/includes/navbar.html' %}
+<br/><div class="container">
+ <nav class="breadcrumb">
+  <a class="breadcrumb-item" href="{% url 'webapp:index' %}">Home</a>
+{#  <a class="breadcrumb-item" href="#">Data</a>#}
+  <span class="breadcrumb-item active">search {{ q }}</span>
+</nav>
+</div>
+<div class="container">
+    {% if obj == 1 %}
+    <div class="jumbotron" style="background-image:url('../../../media/assets/cool-background.jpg') ;border-style:solid;border-width: 3px;border-color: #17a2b8 ;background-attachment: fixed ">
+        <center><h1>Videos</h1></center><hr style="color: black;;opacity: 0.5"/>
+        {% include 'webapp/show/vidshow.html' with vidquery=vid_query %}<hr style="color: black;opacity: 0.5"/>
+        <center><h1>Messages</h1></center><hr style="color: black;;opacity: 0.5"/>
+        {% include 'webapp/show/msgshow.html' with msgquery=msg_query %}<hr style="color: black;opacity: 0.5"/>
+        <center><h1>Ntfc</h1></center><hr style="color: black;;opacity: 0.5"/>
+        {% include 'webapp/show/ntfcshow.html' with ntfcquery=ntfc_query %}<hr style="color: black;opacity: 0.5"/>
+        <center><h1>Images</h1></center><hr style="color: black;;opacity: 0.5"/>
+        {% include 'webapp/show/imgshow.html' with imgquery=img_query %}<hr style="color: black;opacity: 0.5"/>
+        <center><h1>Files</h1></center><hr style="color: black;;opacity: 0.5"/>
+        {% include 'webapp/show/imgshow.html' with filequery=file_query %}<hr style="color: black;opacity: 0.5"/>
+    </div>
+    {% else %}
+    <div class="jumbotron" style="background-image:url('../../../media/assets/extension_not_matched.jpg') ;border-style:solid;border-width: 3px;border-color: #17a2b8 ;background-attachment: fixed;background-size: 10% ">
+        <h1 style="color: red">No items found.</h1>
+    </div>
+    {% endif %}
+</div>
+    {% include 'webapp/includes/footer.html' %}
+    </body>
+{%  endblock %}

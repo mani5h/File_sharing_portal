@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+<body  style="background-image:url('../../../media/assets/game_of_thrones_hd-wallpaper-1366x768.jpg') ;background-attachment: fixed ;height: 100%;background-size: 100%;font-size: medium">
+{% include 'webapp/includes/staticfileloader.html' %}
+<u style="color:grey"><center><h1 style="color: grey">WELCOME TO MYTHON</h1></center></u>
+<br/>
+<div class="container">
+    <div class="jumbotron" style="color:white;background-image:url('../../../media/assets/game_of_thrones_hd-wallpaper-1366x768.jpg') ;background-attachment: fixed ;height: 100%;background-size: 100%">
+<h1>Registration</h1>
+    {% if registered %}
+    <strong>Thank You for registering</strong>
+    <a href="{% url 'webapp:home' %}">return to homepage</a><br>
+    {% else %}
+    <h3>Enter Registration Details</h3> <br>
+    <div class="w">
+    <form id="user_form" method="POST" action="{% url 'webapp:register' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        {%for field in user_form %}
+        <label class="n">{{field.label_tag}}</label>
+        {{field}}<br>
+        {%endfor%}
+
+        <input type="submit" name="submit" value="Register" />
+    </form>
+    </div>
+    {% endif %}
+    </div>
+</div>
+</body>
+</html>

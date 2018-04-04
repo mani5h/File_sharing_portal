@@ -1,0 +1,9 @@
+{% block ntfcshow %}
+
+    {% for ntfc in ntfcquery %}
+    <div class="jumbotron" style="opacity: 0.7">
+    <a href=" /webapp/notification/{{ ntfc.id }}" style="color: #000000">{{ ntfc.body|truncatewords:'15' }}</a>   : <a style="color: mediumvioletred">{{ ntfc.sender }}</a>
+
+    </div>
+    {%  endfor %}
+{% endblock %}

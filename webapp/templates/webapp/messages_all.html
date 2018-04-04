@@ -1,0 +1,27 @@
+
+{%  extends "webapp/includes/base.html" %}
+{% block content %}
+
+    <body style="font-size: medium;background-image:url('../../../media/assets/wall11.jpg') ;background-attachment: fixed ;background-size: 100%">
+    {% include 'webapp/includes/navbar.html' %}
+<br/>
+    <div class="container">
+ <nav class="breadcrumb">
+  <a class="breadcrumb-item" href="{% url 'webapp:index' %}">Home</a>
+{#  <a class="breadcrumb-item" href="#">Library</a>#}
+{#  <a class="breadcrumb-item" href="#">Data</a>#}
+  <span class="breadcrumb-item active">Messages</span>
+</nav>
+</div>
+<div class="container">
+{%  csrf_token %}
+<form  action="{%   url 'webapp:add_message' %}">
+    {%   csrf_token %}
+<input class="btn btn-primary" type="submit" value="New Message"  /><br/>
+    <br/>
+</form>
+{% include 'webapp/show/msgshow.html' with msgquery=all_messages %}
+</div>
+    {% include 'webapp/includes/footer.html' %}
+    </body>
+{%  endblock %}

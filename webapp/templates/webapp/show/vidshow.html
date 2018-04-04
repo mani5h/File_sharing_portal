@@ -1,0 +1,21 @@
+{% block vidshow %}
+        <div class="container">
+            <div class="row">
+                {% for vid in vidquery %}
+                <div class="col-sm-4">
+                    <div class="jumbotron" style="opacity: 0.7">
+{#                       <video controls  muted  width="250">#}
+{#                            <source src="{{ vid.video.url }} ">#}
+{#                    </video>#}
+                        {#                        <img src="{{ vid.video.url }}" width="250">#}<center>
+
+                        <h2><a href=" /webapp/vid/{{ vid.id }}" style="color: #000000">{{ vid.name }}</a></h2>
+                        <h3><a style="color: mediumvioletred">{{ vid.category }}</a>
+                    </h3></center>
+                    </div>
+                </div>
+                {%  endfor %}
+            </div>
+        </div>
+		
+{% endblock %}

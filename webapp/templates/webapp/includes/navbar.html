@@ -1,0 +1,61 @@
+{% block navbar %}
+{%  load staticfiles %}
+    {% block head %}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel='stylesheet' href="{%  static 'css/bootstrap.min.css' %}" type='text/css'/>
+{% endblock %}
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="{%  url 'webapp:index' %}" style="font-size: large"><i class="fa fa-home"></i>Mython</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'webapp:file_all' %}"><i class="fa fa-file"></i>  Files</a>
+      </li>
+
+{#      <li class="nav-item active">#}
+{#        <a class="nav-link" href="{% url 'webapp:messages_all' %}">Messages <span class="sr-only">(current)</span></a>#}
+{#      </li>#}
+        <li><a class="nav-link" href="{% url 'webapp:messages_all' %}" ><i class="fa fa-comments"></i>&nbsp; MSG</a>
+        </li>
+{#        <li class="nav-item active">#}
+{#        <a class="nav-link" href="{% url 'webapp:vid_all' %}">Videos <span class="sr-only">(current)</span></a>#}
+{#      </li>#}
+        <li><a class="nav-link" href="{% url 'webapp:vid_all' %}" ><i class="fa fa-film"></i> VID</a>
+        </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'webapp:notification_all' %}"><i class="fa fa-pencil-square"></i> Ntfc</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'webapp:album_all' %}"><i class="fa fa-music"></i> Music</a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" href="{% url 'webapp:img_all' %}"><i class="fa fa-picture-o"></i> Image</a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" href="http://127.0.0.1:8000/admin/"><i class="fa fa-user-secret"></i> Admin</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="{% url 'webapp:rss' %}"><i class="fa fa-rss-square">  </i>  RSS Feed</a>
+      </li>
+    <li class="nav-link">
+    <form class="form-inline my-2 my-lg-0" method="get" action="{% url 'webapp:search' %}">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="q">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+    </li>
+    </ul>
+        <a class="nav-link " href="{% url 'webapp:user_logout' %}" style="color: inherit">Logged in as {{ request.user.first_name }} <i class="fa fa-power-off" style="color: orangered" href="{% url 'webapp:user_logout' %}">  </i> </a>
+
+
+  </div>
+</nav>
+{% endblock %}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prelogin</title>
+</head>
+<body style="font-size: medium;background-image:url('../../../media/assets/game_of_thrones_map_of_westeros_-wallpaper-1366x768.jpg') ;background-attachment: fixed ;height: 100%;background-size: 100%">
+{% include 'webapp/includes/staticfileloader.html' %}
+<u style="color: black"><center><h1 style="color: grey">WELCOME TO MYTHON</h1></center></u>
+<br/>
+<center><h3 style="color: white"> Please login to use our services</h3></center>
+
+<div class="container">
+    <div class="jumbotron">
+        <table class="table" style="column-count: 3">
+            <tbody>
+            <tr>
+            <td style="color: green"><strong>ALWAYS</strong></td>
+            <td style="color: green"><strong>ALWAYS</strong></td>
+            <td style="color: red"><strong>NEVER</strong></td>
+            </tr>
+            <tr>
+            <td> keep your computer free of malware</td>
+            <td> change your password periodically</td>
+            <td> disclose your password</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="container">
+    <div class="jumbotron" ><center>
+        <a href="{% url 'webapp:user_login' %}" style="text-decoration: none">CONTINUE TO lOGIN</a>
+    </center>
+    </div>
+</div>
+        <center><a href="{%   url 'webapp:contact' %}" style="color: black">About site</a></center>
+{#{% include 'webapp/includes/footer.html' %}#}
+</body>
+</html>

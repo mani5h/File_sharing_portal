@@ -1,0 +1,25 @@
+{%  extends "webapp/includes/base.html" %}
+{% block content %}
+    <body style="font-size: medium;background-image:url('../../../media/assets/wavy_wallpaper.jpg') ;background-attachment: fixed ;height: 100%">
+    {% include 'webapp/includes/navbar.html' %}
+<div class="container">
+ <br/><nav class="breadcrumb">
+  <a class="breadcrumb-item" href="{% url 'webapp:index' %}">Home</a>
+  <span class="breadcrumb-item active">Files</span>
+</nav>
+</div>
+    <br/>
+<div class="container">
+{%  csrf_token %}
+<form  action="{%   url 'webapp:file_add' %}">
+    {%   csrf_token %}
+<input class="btn btn-primary" type="submit" value="New File"  /><br/>
+</form>
+
+
+<br/>
+{% include 'webapp/show/fileshow.html' with filequery=fileall %}
+</div>
+    {% include 'webapp/includes/footer.html' %}
+    </body>
+{%  endblock %}

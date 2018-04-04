@@ -1,0 +1,16 @@
+{% block fileshow %}
+        <div class="container">
+            <div class="row">
+                {% for file in filequery %}
+                <div class="col-sm-4">
+                    <div class="jumbotron" style="opacity: 0.6">
+
+                     <a href=" /webapp/file/{{ file.id }}" style="color: #000000">{{ file.name }}</a>
+                     <a style="color: mediumvioletred">{{ file.category }}</a>
+                    </div>
+                </div>
+                {%  endfor %}
+            </div>
+        </div>
+		
+{% endblock %}

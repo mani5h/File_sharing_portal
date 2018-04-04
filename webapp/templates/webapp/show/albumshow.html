@@ -1,0 +1,20 @@
+{% block albumshow %}
+        <div class="container">
+            <div class="row">
+                {% for album in albumquery %}
+                <div class="col-sm-4">
+                    <div class="jumbotron" style="opacity: 0.6">
+<center>
+                        <img width="200px" src="{{ album.logo.url }}"/>
+                        <h2><a href=" /webapp/album/{{ album.id }}" style="color: #000000;text-decoration: none">{{ album.title }}</a></h2>
+<br/>
+                              <h3><a style="color:mediumvioletred">{{ album.artist }}</a></h3>
+                            <h3><a style="color: mediumvioletred">{{ album.genre }}</a></h3>
+</center>
+                    </div>
+                </div>
+                {%  endfor %}
+            </div>
+        </div>
+		
+{% endblock %}

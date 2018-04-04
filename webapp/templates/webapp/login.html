@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LOGIN</title>
+</head>
+<body style="font-size: medium;background-image:url('../../../media/assets/big_hero_6_disney_baymax-wallpaper-1366x768.jpg') ;background-attachment: fixed ;height: 100%;background-size: 100%">
+{% include 'webapp/includes/staticfileloader.html' %}
+{% comment %}{% include 'epay/includes/navbar.html' %}{% endcomment %}
+<u style="color: white"><center><h1 style="color: grey">WELCOME TO MYTHON</h1></center></u>
+<br/>
+<center><h3 style="color: dimgrey"> Please login to use our services</h3></center>
+<div class="container">
+<div class="jumbotron" style="background-image:url('../../../media/assets/big_hero_6_disney_baymax-wallpaper-1366x768.jpg') ;background-attachment: fixed ;height: 100%;background-size: 100%"><center>
+    <form id="login_form" method="post" action="{% url 'webapp:user_login' %}">
+        {% csrf_token %}
+        <p class='n'>Username: </p><input type="text" name="username" placeholder="Enter Username" value="" size="50" />
+        <br>
+        <p class="n">Password: </p><input type="password" name="password" placeholder="Enter Password" value="" size="50" />
+        <br>
+        <input type="submit" value="submit" />
+    </form>
+<br/>
+  <p><strong>-- OR --</strong></p>
+  <h2><a href="{% url 'social:begin' 'github' %}" style="text-decoration: none"><i class="fa fa-github"></i> Continue with Github</a><br></h2>
+    <h2><a href="{% url 'social:begin' 'facebook' %}" style="text-decoration: none"><i class="fa fa-facebook-square"></i> Continue with Facebook</a></h2>
+</center>
+</div>
+</div>
+</body>
+</html>

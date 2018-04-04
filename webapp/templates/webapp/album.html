@@ -1,0 +1,44 @@
+
+{%  extends "webapp/includes/base.html" %}
+{% block content %}
+
+    <body style="font-size: medium;background-image:url('../../../media/assets/wavy_wallpaper.jpg') ;background-attachment: fixed ;height: 100%">
+    {% include 'webapp/includes/navbar.html' %}<br/>
+<div class="container">
+{%  csrf_token %}
+<form  action="{%   url 'webapp:addsong' %}">
+    {%   csrf_token %}
+<input class="btn btn-primary" type="submit" value="New Song"  /><br/>
+</form>
+
+</div>
+<br/>
+
+    <div class="jumbotron" style="background: transparent;border-width: 10px;border-color: royalblue;border: solid" >
+<center>    <img width="400px" src="{{ album.logo.url }}" style="margin: 20px"/>
+       </center> <div class="jumbotron">
+            <center>
+        <h1>{{ album.title }}</h1>
+
+        <h3>{{ album.artist }} </h3><br/>
+        <h4>{{ album.genre }}</h4><br/>
+        <h3>{{ album.uploaded_at }}</h3><br/>
+        </center></div>
+
+        <div class="jumbotron">
+            <div class="row">
+        {% for s in songs %}
+             <div class="col-sm-6" style="margin-bottom: 10px;margin-top: 10px">
+                 <h1><a href="{{ s.song.url }}"><i class="fa fa-download"></i> {{ s.name }}</a></h1><br/>
+        <audio controls="controls">
+                Your browser does not support the &lt;audio&gt; tag.
+                <source src="{{ s.song.url }}" />
+        </audio><br/>
+        <a  >{{ s.size }}  KB</a><br/>
+        <a  >{{ s.extension }}</a><br/>
+        <strong><a  >{{ s.uploaded_at }}</a></strong><br/>
+            </div>{% endfor %}</div>
+    </div>
+</div>
+    </body>
+{%  endblock %}

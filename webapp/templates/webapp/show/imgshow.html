@@ -1,0 +1,21 @@
+{% block imgshow %}
+    <div class="images-container container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+        </div>
+        {% for img in imgquery %}
+                <div class="col-sm-4 col-lg-4">
+                    <div class="jumbotron">
+                        <a href="{% url 'webapp:img' img.id %}">
+                            <img src="{{ img.img.url }}" class="img-responsive" height="300px" width="300px">
+                        </a>
+                        <div class="caption">
+                            <h2>{{ img.name }}</h2>
+                            <a href="{% url 'webapp:img' img.id %}" class="btn btn-primary btn-sm" role="button">View Details</a>
+                            </div>
+                    </div>
+                </div>
+        {% endfor %}
+    </div>
+    </div>
+{% endblock %}

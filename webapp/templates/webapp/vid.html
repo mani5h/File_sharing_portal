@@ -1,0 +1,39 @@
+
+{%  extends "webapp/includes/base.html" %}
+{% block content %}
+
+    <body style="background-image:url('../../../media/assets/wavy_wallpaper.jpg') ;background-attachment: fixed ;height: 100%;font-size: medium">
+    {% include 'webapp/includes/navbar.html' %}
+<br/><div class="container">
+ <nav class="breadcrumb">
+  <a class="breadcrumb-item" href="{% url 'webapp:index' %}">Home</a>
+  <a class="breadcrumb-item" href="{% url 'webapp:vid_all' %}">Videos</a>
+{#  <a class="breadcrumb-item" href="#">Data</a>#}
+  <span class="breadcrumb-item active">{{ video.name }}</span>
+</nav>
+</div>
+<div class="container">
+
+
+    <div class="jumbotron" style="opacity: 1">
+        <h1><center><strong><a href=" {{ video.video.url }}" style="color: #000000;text-decoration: none"><i class="fa fa-download"></i> {{ video.name }}</a></strong></center></h1>
+        <br/>
+    <center>
+          <video controls  muted  width="70%" style="margin: 10px">
+              <source src="{{ video.video.url }} ">
+                    </video>
+    <br/><h2>
+        <a style="color: mediumvioletred">{{ video.description }}</a><br/><br/>
+        <a style="color: mediumvioletred">{{ video.category }}</a><br/><br/>
+        <a style="color: mediumvioletred">{{ video.size }} KB</a><br/><br/>
+        <a style="color: mediumvioletred">{{ video.uploaded_at }}</a><br/><br/>
+        <a style="color: mediumvioletred">{{ video.video }}</a><br/><br/>
+
+        <a href="{% url 'webapp:delete_vid' video.pk %}"> <img width="100px" height="100px" src="../../../media/assets/delete_icon.png"/></a>
+        </h2></center>
+    </div>
+
+</div>
+    {% include 'webapp/includes/footer.html' %}
+    </body>
+{%  endblock %}

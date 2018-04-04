@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MYTHON</title>
+</head>
+<body style="font-size: medium;background-image:url('../../../media/assets/intro-800.jpg') ;background-attachment: fixed ;height: 100%;background-size: 100%">
+{% include 'webapp/includes/staticfileloader.html' %}
+< style="color: white"><center><h1 style="color: white">WELCOME TO</h1></center>
+<center><img src="./../../../media/assets/mython_img.png" style="width: 400px"/></center>
+<br/><br/>
+<center><h3 style="color: white"> Please login/Register to use our services</h3></center>
+<br/>
+<div class="container">
+<div class="jumbotron" style="background-image:url('../../../media/assets/intro-800.jpg') ;background-attachment: fixed ;height: 100%;background-size: 100%"><center>
+    <form method = post action="{%   url 'webapp:pre_login' %}">
+    {%   csrf_token %}
+<input class="btn btn-primary" type="submit" value="LOGIN"  /><br/>
+        <br/><br/><br/>
+    </form>
+        <strong><h4 style="color: white">New to site <a href="{% url 'webapp:register' %}" style="text-decoration: none">Register </a> here </h4>
+</strong></center>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+
+{%  extends "webapp/includes/base.html" %}
+
+{% block content %}
+    <body style="background:linear-gradient(dodgerblue,yellowgreen) ;background-attachment: fixed ;height: 100%;font-size: medium">
+    {% include 'webapp/includes/navbar.html' %}
+    <img src="../../../media/assets/bg.png" width="400" height="400" style="position: relative;left: 36%" >
+    <div class=""><center>
+        <a href="{% url 'webapp:upload-menu' %}" style="font-size: xx-large;text-decoration: none"><i class="fa fa-upload"></i> UPLOAD</a></center><br/>
+    </div>
+
+    <div class="container-fluid">
+    <div  style="background-color: #007bff;text-align: center;text-decoration-color: #ffffff">
+        <div class="jumbotron" style="background-color: #007bff">
+            <h1>Recent Messages Received</h1>
+            <div class="container">
+            {% include 'webapp/show/msgshow.html' with msgquery=msgqr %}
+            </div>
+            <br/>
+        </div>
+    </div>
+    </div>
+
+    <div class="container-fluid"  >
+    <div  style="background-color: #007bff;text-align: center;text-decoration-color: #ffffff">
+        <div class="jumbotron" style="background-image: url('./../../../media/assets/color-gradient-wallpaper-3.jpg.png')">
+            <h1>Newly added Videos</h1>
+            <div class="container">
+            {% include 'webapp/show/vidshow.html' with vidquery=vidqr %}
+            </div>
+            <br/>
+        </div>
+    </div>
+    </div>
+    <div class="container-fluid"  >
+    <div  style="background-color: #007bff;text-align: center;text-decoration-color: #ffffff">
+        <div class="jumbotron" style="background-color: #007bff">
+            <h1>Newly added images</h1>
+            <div class="container">
+            {% include 'webapp/show/imgshow.html' with imgquery=imgqr %}
+            </div>
+            <br/>
+        </div>
+    </div>
+    </div>
+    <div class="container-fluid"  >
+    <div  style="background-color: #007bff;text-align: center;text-decoration-color: #ffffff">
+        <div class="jumbotron" style="background-color: #007bff">
+            <h1>Newly added files</h1>
+            <div class="container">
+            {% include 'webapp/show/fileshow.html' with filequery=fileqr %}
+            </div>
+            <br/>
+        </div>
+    </div>
+    </div>
+
+    {% include 'webapp/includes/footer2.html' %}
+
+    </body>
+{% endblock %}

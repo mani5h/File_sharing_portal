@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>unsupported extension</title>
+</head>
+<body style="font-size: medium">
+    {% include 'webapp/includes/staticfileloader.html' %}
+    <div class="alert alert-danger" role="alert">
+    <strong>Oh snap!</strong> Change a few things up and try submitting again.
+    </div>
+
+    <div class="alert alert-warning" role="alert">
+    Try submitting in <strong>{{ temp }}</strong>. Click <a href="{%   url ref %}">here </a>to upload in {{ temp }}.
+    </div>
+    <h1>The extension {{ ext }} is unsupported.Please check the file.</h1>
+    <h4>Click <a href="{% url 'webapp:index' %}" > here </a> to go to the homepage.</h4>
+    <a style="position:absolute;top: 34%;left: 40% "><img width="300px" height="300px" src="../../../media/assets/extension_not_matched.jpg"></a>
+</body>
+</html>
