@@ -1,5 +1,0 @@
-python manage.py shell
-
-CREATE TABLE table_name (column1 datatype,col2 datatype .... )
-ALTER TABLE
-DROP TABLE
