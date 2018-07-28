@@ -11,6 +11,17 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+SOCIAL_AUTH_FACEBOOK_KEY = '141715239787253'  # App ID
+SOCIAL_AUTH_FACEBOOK_SECRET = 'b7504ae8628407ab0af22f05d6f4a41c'  # App Secret
+SOCIAL_AUTH_GITHUB_KEY = '23f8e06fb40495adc5d2'
+SOCIAL_AUTH_GITHUB_SECRET = '7cd56e3f225f01d365d4577eaac176ff3c4e1897'
+
+
+EMAIL_USE_TLS= True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'mython.itw@gmail.com'
+EMAIL_HOST_PASSWORD = 'sumanthmanche'
+EMAIL_PORT = 587
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
